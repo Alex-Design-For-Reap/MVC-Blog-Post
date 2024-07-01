@@ -1,11 +1,11 @@
 // const sequelize = require("../config/connection");
 const { Comment } = require("../models");
 
-const mealsData = require("./commentsData.json");
+const commentData = require("./commentsData.json");
 
 const seedComments = async () => {
   try {
-    await Comment.bulkCreate(commentsData, {
+    await Comment.bulkCreate(commentData, {
       individualHooks: true,
       returning: true,
     });
