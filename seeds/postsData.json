@@ -1,0 +1,32 @@
+[
+    {
+        "title": "The Lotus Flower",
+        "content": "The lotus flower is a symbol of purity and enlightenment. It is a symbol of rebirth and new beginnings.",
+        "user_id": 1
+      },
+    {
+        "title": "The Sunflower",
+        "content": "The sunflower is a symbol of loyalty and longevity. It is a symbol of adoration and dedication.",
+        "user_id": 2
+    },
+    {
+        "title": "The Rose",
+        "content": "The rose is a symbol of love and passion. It is a symbol of beauty and desire.",
+        "user_id": 3
+    },
+    {
+        "title": "The Daisy",
+        "content": "The daisy is a symbol of innocence and purity. It is a symbol of simplicity and humility.",
+        "user_id": 1
+    },
+    {
+        "title": "The Tulip",
+        "content": "The tulip is a symbol of elegance and grace. It is a symbol of prosperity and abundance.",
+        "user_id": 2
+    },
+    {
+        "title": "The Orchid",
+        "content": "The orchid is a symbol of luxury and beauty. It is a symbol of strength and power.",
+        "user_id": 3
+    }
+]
