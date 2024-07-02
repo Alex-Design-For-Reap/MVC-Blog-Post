@@ -1,0 +1,37 @@
+<!-- Hero Section -->
+<section class="bg-gray-100 py-16 text-center">
+  <div class="container mx-auto">
+    <h1 class="mb-4 text-4xl font-bold">Welcome {{user.username}} to your Dashboard</h1>
+    <p class="mb-8 text-lg text-gray-700">Check your posts here!</p>
+    <a
+      href="/new-dog"
+      class="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-600"
+    >Add New Post</a>
+    
+  </div>
+</section>
+
+{{!-- Post Session --}}
+<section>
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+    {{#each posts}}
+        <div class="rounded border border-gray-200 shadow-md p-6 bg-white">
+        <div class="px-4 py-5 sm:px-6">
+            <h2 class="text-lg leading-6 font-medium text-gray-900">
+            <a href="/post/{{id}}" class="hover:underline">{{title}}</a>
+            </h2>
+            <p class="mt-1 max-w-2xl text-sm text-gray-500">
+            By {{user.username}} on {{createdAt}}
+            </p>
+        </div>
+        <div class="border-t border-gray-200">
+            <dl>
+            <dt class="text-sm font-medium text-gray-500 px-4 py-2">
+                {{content}}
+            </dt>
+            </dl>
+        </div>
+        </div>
+    {{/each}}
+    </div>
+</section>
