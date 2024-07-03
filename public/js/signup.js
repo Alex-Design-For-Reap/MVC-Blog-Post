@@ -16,15 +16,15 @@ const signupFormHandler = async (event) => {
                 headers: { 'Content-Type': 'application/json' }
             });
 
-            if (!response.ok) {
-                // Handle non-200 responses
-                throw new Error(`HTTP error! status: ${response.status}`);
+            if (response.ok) {
+                document.location.replace('/dashboard');
+            } else {
+                alert('Failed to sign up');
             }
 
             const data = await response.json();
             console.log(data);
         } catch (error) {
-            // Handle errors
             console.error('Error:', error);
         }
     }
