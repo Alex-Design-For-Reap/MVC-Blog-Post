@@ -7,31 +7,43 @@
       href="/dashboard/newBlogPost"
       class="rounded bg-black px-4 py-2 font-bold text-white hover:bg-blue-600"
     >Add New Blog Post</a>
-    
   </div>
 </section>
 
 {{!-- Post Session --}}
 <section class="py-16">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 mt-8">
     {{#each posts}}
-        <div class="rounded border border-gray-200 shadow-md p-6 bg-white">
+      <div class="rounded border border-gray-200 shadow-md p-6 bg-white">
         <div class="px-4 py-5 sm:px-6">
-            <h2 class="text-lg leading-6 font-medium text-gray-900">
-            <a href="/post/{{id}}" class="hover:underline">{{title}}</a>
-            </h2>
-            <p class="mt-1 max-w-2xl text-sm text-gray-500">
-            By you on {{createdAt}}
-            </p>
+          <h2 class="text-lg leading-6 font-medium text-gray-900">
+            <a href="/dashboard/editPost/{{id}}" class="hover:underline">{{title}}</a>
+          </h2>
+          <p class="mt-1 max-w-2xl text-sm text-gray-500">
+            By you on {{format_date createdAt}}
+          </p>
         </div>
         <div class="border-t border-gray-200">
-            <dl>
+          <dl>
             <dt class="text-sm font-medium text-gray-500 px-4 py-2">
-                {{content}}
+              {{content}}
             </dt>
-            </dl>
+          </dl>
         </div>
+        <div class="container px-4 sm:px-6 lg:px-8">
+          <a href="/dashboard/editPost/{{id}}">
+            <button
+              class="rounded bg-black px-4 py-2 font-bold text-white hover:bg-blue-600">Edit
+            </button>
+          </a>
+            <button
+              class="delete-post rounded bg-black px-4 py-2 font-bold text-white hover:bg-blue-600" data-id="{{this.id}}">Delete
+            </button>
         </div>
+        
+      </div>
     {{/each}}
-    </div>
+  </div>
 </section>
+
+<script src="/js/dashboard.js"></script>

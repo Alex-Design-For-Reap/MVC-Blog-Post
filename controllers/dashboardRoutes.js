@@ -30,11 +30,34 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-// render the new post page
+// render the new post form page
 router.get('/newBlogPost', withAuth, (req, res) => {
   res.render('newBlogPost', {
     logged_in: req.session.logged_in,
   });
 });
+
+// render the edit post form page
+router.get('/editPost/:id', withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id);
+
+    if (!postData) {
+      res.status(404).json({ message: 'No post found with this id!' });
+      return;
+    }
+
+    const post = postData.get({ plain: true });
+
+    res.render('editPost', {
+      post,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+});
+
 
 module.exports = router;
