@@ -1,7 +1,7 @@
 // controllers/api/userRoutes.js
 const router = require('express').Router();
 const { User } = require('../../models');
-const withAuth = require('../../utils/auth');
+// const withAuth = require('../../utils/auth');
 
 
 // create a new user
@@ -64,6 +64,28 @@ router.post('/logout', (req, res) => {
     });
   } else {
     res.status(404).end();
+  }
+});
+
+//get all users
+router.get('/', async (req, res) => {
+  try {
+    const users = await User.findAll();
+    res.status(200).json(users);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+});
+
+//get a single user
+router.get('/:id', async (req, res) => {
+  try {
+    const user = await User.findByPk(req.params.id);
+    res.status(200).json(user);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
   }
 });
 
