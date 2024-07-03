@@ -4,9 +4,9 @@
     <h1 class="mb-4 text-4xl font-bold">Hi, {{user.username}}</h1>
     <p class="mb-8 text-lg text-gray-700">Check your posts here!</p>
     <a
-      href="/new-post"
+      href="/dashboard/newBlogPost"
       class="rounded bg-black px-4 py-2 font-bold text-white hover:bg-blue-600"
-    >Add New Post</a>
+    >Add New Blog Post</a>
     
   </div>
 </section>
@@ -21,7 +21,7 @@
             <a href="/post/{{id}}" class="hover:underline">{{title}}</a>
             </h2>
             <p class="mt-1 max-w-2xl text-sm text-gray-500">
-            By {{user.username}} on {{createdAt}}
+            By you on {{createdAt}}
             </p>
         </div>
         <div class="border-t border-gray-200">
