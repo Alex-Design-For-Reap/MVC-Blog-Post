@@ -4,7 +4,6 @@ const logout = async () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
     });
-    // sessionStorage.removeItem('accessToken')
     sessionStorage.removeItem('user')
     
     if (response.ok) {
@@ -16,4 +15,3 @@ const logout = async () => {
 };
 
 document.querySelector('#logout').addEventListener('click', logout);
-// document.querySelector('#logout').addEventListener('click', logout);

@@ -1,5 +1,3 @@
-//function to listen and add a new dog to the database
-
 const newBlogPostFormHandler = async (event) => {
     event.preventDefault();
     const title = document.querySelector('#title').value.trim();
@@ -15,8 +13,6 @@ const newBlogPostFormHandler = async (event) => {
         if (response.ok) {
             document.location.replace('/dashboard');
         } else {
-            // const errorText = await response.text();
-            // console.error('Error:', response.statusText, errorText);
             alert(response.statusText);
         } 
         } else {
