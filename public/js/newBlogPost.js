@@ -15,10 +15,9 @@ const newBlogPostFormHandler = async (event) => {
         } else {
             alert(response.statusText);
         } 
-        } else {
-            console.error('Validation Error: All fields are required.');
-        }
-
+    } else {
+        console.error('Validation Error: All fields are required.');
+    }
 }
 
 document
