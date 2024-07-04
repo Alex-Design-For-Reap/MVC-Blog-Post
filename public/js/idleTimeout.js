@@ -1,6 +1,6 @@
 // public/js/idleTimeout.js
 let idleTime = 0;
-const maxIdleTime = 60 * 1000; // 1 minute
+const maxIdleTime = 15 * 60 * 1000; // 1 minute
 
 function resetIdleTimer() {
     idleTime = 0;

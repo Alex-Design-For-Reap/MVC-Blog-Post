@@ -1,0 +1,74 @@
+
+{{!-- Post Session --}}
+<section class="py-16">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+        <div class="rounded border border-gray-200 shadow-md p-6 bg-white">
+            <div class="px-4 py-5 sm:px-6">
+                <h1 class="mb-4 text-4xl font-bold">{{title}}</h1>
+                <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                    By {{user.username}} on {{format_date createdAt}}
+                </p>
+            </div>
+            <div class="border-t border-gray-200">
+                <dl>
+                    <dt class=" px-4 py-2">
+                        {{content}}
+                    </dt>
+                </dl>
+            </div>        
+        </div>
+  </div>
+</section>
+
+{{!-- Comment Session --}}
+
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="rounded border border-gray-200 shadow-md px-4 pt-4 ">
+            <div class="px-4 sm:px-6">
+                <h2 class="mb-4 text-2xl py-1 font-bold">Comments</h2>
+            </div>
+        </div>
+  </div>
+
+{{#each comments}}
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+      <div class="rounded border border-gray-200 shadow-md p-6 bg-white">
+            <div class="px-4 py-5 sm:px-6">
+                <ul id="comment-list">
+                    <li>
+                        <p>{{this.comment_text}}</p>
+                        <p class="mt-1 max-w-2xl text-sm text-gray-500">By {{this.user.username}} on {{format_date createdAt}}</p>
+                    </li>
+                </ul>
+            </div>
+      </div>
+  </div>
+{{/each}}
+
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+    <div class="py-4">
+            {{#if logged_in}}
+            <form id="comment-form">
+                <textarea class="rounded bg-white px-4 py-2 font-bold text-black" id="comment-text" name="comment_text" placeholder="Add a comment..." required></textarea>
+                <button class="rounded bg-black px-4 py-2 font-bold text-white hover:bg-blue-600" type="submit">Submit</button>
+            </form>
+            {{else}}
+            <a href="/login" class="hover:underline text-sky-400">**You must be logged in to add comments.**</a>
+            {{/if}}
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- views/post.handlebars -->
+
+
+    <script src="/js/comment.js"></script>
