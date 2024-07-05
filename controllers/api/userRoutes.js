@@ -1,6 +1,6 @@
 // controllers/api/userRoutes.js
 const router = require('express').Router();
-const { User } = require('../../models/Index.js');
+const { User } = require('../../models');
 // const withAuth = require('../../utils/auth');
 
 

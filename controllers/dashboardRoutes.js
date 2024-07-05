@@ -1,6 +1,6 @@
 // controllers/dashboardRoutes.js
 const router = require('express').Router();
-const { Post, User } = require('../models/Index.js');
+const { Post, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 // GET all posts for the user for dashboard page
