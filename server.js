@@ -1,19 +1,24 @@
-const path = require('path');
-const express = require('express');
-const session = require('express-session');
-const exphbs = require('express-handlebars');
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
+// express import
+const path = require("path");
+const express = require("express");
+const exphbs = require("express-handlebars");
+const helpers = require("./utils/helpers");
+const routes = require("./controllers");
 
-const sequelize = require('./config/connection');
-const routes = require('./controllers');
-const helpers = require('./utils/helpers');
-const { User, Comment, Post } = require('./models');
+//express handlerbars imports
+const sequelize = require("./config/connection");
+
+// Importing express-session and connect-session-sequelize
+const session = require("express-session");
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
+
+
+// const { User, Comment, Post } = require('./models');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const hbs = exphbs.create({ helpers });
-
+// Session configuration
 const sess = {
   secret: process.env.SESSION_SECRET,
   cookie: {},
@@ -24,7 +29,12 @@ const sess = {
   }),
 };
 
+// Use session 
 app.use(session(sess));
+
+// Handlebars.js engine setup
+const hbs = exphbs.create({ helpers });
+
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
