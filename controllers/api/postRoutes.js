@@ -1,6 +1,6 @@
 // controllers/api/postRoutes.js
 const router = require('express').Router();
-const { Post } = require('../../models');
+const { Post } = require('../../models/Index.js');
 const withAuth = require('../../utils/auth');
 
 // CREATE a new post

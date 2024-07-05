@@ -1,6 +1,6 @@
 // controllers/api/commentRoutes.js
 const router = require('express').Router();
-const { Comment } = require('../../models');
+const { Comment } = require('../../models/Index.js');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
