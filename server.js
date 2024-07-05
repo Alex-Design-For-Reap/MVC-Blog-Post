@@ -33,8 +33,11 @@ const sess = {
 app.use(session(sess));
 
 // Handlebars.js engine setup
-const hbs = exphbs.create({ helpers });
-
+const hbs = exphbs.create({
+  //registering partials in our hbs instance
+  partialsDir: path.join(__dirname, "views/partials"),
+  helpers: helpers,
+});
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
